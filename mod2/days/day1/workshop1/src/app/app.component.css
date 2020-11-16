@@ -1,0 +1,23 @@
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+img.center {
+  width: 600px;
+  padding: 30px;
+}
+
+h2 {
+  text-align: center;
+  color: red;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.right {
+  display: block;
+  float: right;
+}
