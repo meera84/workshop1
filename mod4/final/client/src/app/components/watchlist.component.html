@@ -1,0 +1,50 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Stocks You Have Listed On Your WatchList </h1>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ticker</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Volume</th>
+            <th scope="col">Yesterday's Close</th>
+            <th scope="col">Logged Date</th>
+            <th scope="col">Watchlisted Price</th>
+            <th scope="col">Profit /Loss (For 1 Stock)</th>
+            
+            <th scope="col">Delete from WatchList</th>
+ 
+          </tr>
+        </thead>
+        <tbody> 
+          <tr *ngFor="let i of foundData;index as idx" class='item-class'>
+            <th scope="row">{{idx+1}}</th>
+            <td>{{i.ticker}}</td>
+            <td>{{i.fullname}}</td>
+            <td>{{i.volume}}</td>
+            <td>${{i.closePrice}}</td>
+            <td>{{i.loggedDate | date}}</td>
+            <td>${{i.watchlistPrice}}</td>
+            <td>${{i.difference}}</td>
+            
+             <td><button type="button" 
+              (click)="deleteWatchList(i.ticker,i.idwatchlist)" 
+              class="btn btn-danger">Delete</button></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+      <h4>Total Stocks Under WatchList: {{totalWatchList?.count}}</h4>
+    </div>
+    </div>
+  </div>
+

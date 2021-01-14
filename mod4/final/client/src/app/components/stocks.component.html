@@ -1,0 +1,53 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <h1>Spacs Stock Watch</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Ticker</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Open</th>
+      <th scope="col">Close</th>
+      <th scope="col">Volume</th>
+      <th scope="col">Change</th>
+      <th scope="col">% Change</th>
+      <th scope="col">View Details</th>
+      <th scope="col">Watchlist</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of stockList;index as idx" class='item-class'>
+      <th scope="row">{{idx+1}}</th>
+      <td>{{i.symbol}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.open}}</td>
+      <td>{{i.close}}</td>
+      <td>{{i.volume}}</td>
+      <td>{{i.change}}</td>
+      <td>{{i.percent_change}}</td>
+      <!-- <td>{{i.name}}</td> -->
+      <td><button type="button" class="btn btn-primary" (click)="viewSpac(i.symbol)">View Details</button></td>
+      <td><button type="button" class="btn btn-info" (click)="addSpac(i.symbol, i.open)" [disabled]="!userSignedIn">Add</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <h3>Total no. of Spac Stocks: {{stockCount}}</h3>
+   </div>
+  </div>
+
+  <div class="row">
+    <div class="col" *ngIf="!userSignedIn">
+      <h3>Please login with your Google Account to add stocks to your watchlist </h3>
+      <button type="button" class="btn btn-warning btn-primary" (click)="authenticate()">Login</button>
+     </div>
+    </div>
+</div>
+

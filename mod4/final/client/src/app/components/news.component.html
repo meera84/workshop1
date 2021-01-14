@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="row">
+    <h2>Latest Spacs Related News</h2>
+  </div>
+  <div class="row">
+    <div class="col" *ngFor="let item of news">
+    <div class="card" style="width: 18rem;">
+      <div *ngIf="item.urlToImage">
+        <img class="card-img-top" [src]="item.urlToImage" alt="Card image cap">
+      </div>
+      <div *ngIf="!item.urlToImage">
+        <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" alt="Card image cap">
+      </div>
+      <div class="card-body">
+        
+        <h5 class="card-title">{{item.title}}</h5>
+        <p class="card-text">{{item.description}}</p>
+        
+        <a href="{{item.url}}" target="_blank" class="btn btn-primary">Go to Article</a><br>
+        
+        <p class="card-text" id="sm1">
+          Published by: {{item.source.name}}<br>
+          Published on: {{item.publishedAt|date:'short'}}
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
